@@ -200,7 +200,7 @@ io.on('connection', (player) => {
           console.log(`- Removed player: ${playerIDToRemove} from session :${sessionID}`);
   
           // if the session is now empty delete it.
-          if (playerIDs.length === 0) {
+          if (playerIDs.length === 0 && sessions[sessionID]['state'] !== 'closed') {
             console.log(`- Session is empty, deleting session: ${sessionID}`);
             sessions[sessionID] = null;
             delete sessions[sessionID];
